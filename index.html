@@ -348,6 +348,15 @@
         </div>
     </section>
 
+    <!-- Floating Audio Player -->
+    <div id="audio-player-container" style="position:fixed;bottom:32px;right:32px;z-index:9999;display:flex;align-items:center;background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(0,0,0,0.15);border-radius:32px;padding:8px 16px;gap:12px;">
+        <button id="audio-toggle" style="background:none;border:none;outline:none;cursor:pointer;font-size:1.5rem;color:#e74c3c;">
+            <i id="audio-icon" class="fas fa-pause"></i>
+        </button>
+        <audio id="main-audio" src="music/mymusic.mp3" autoplay loop></audio>
+        <span style="font-size:1rem;color:#333;font-family:'Poppins',sans-serif;">Now Playing</span>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">

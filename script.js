@@ -369,3 +369,35 @@ loadingStyle.textContent = `
     }
 `;
 document.head.appendChild(loadingStyle); 
+
+// Floating audio player controls
+const audio = document.getElementById('main-audio');
+const audioToggle = document.getElementById('audio-toggle');
+const audioIcon = document.getElementById('audio-icon');
+
+if (audio && audioToggle && audioIcon) {
+    // Ensure autoplay on load (may be blocked by browser until user interacts)
+    window.addEventListener('DOMContentLoaded', () => {
+        audio.play().catch(() => {});
+    });
+    audioToggle.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            audioIcon.classList.remove('fa-play');
+            audioIcon.classList.add('fa-pause');
+        } else {
+            audio.pause();
+            audioIcon.classList.remove('fa-pause');
+            audioIcon.classList.add('fa-play');
+        }
+    });
+    // Update icon if user uses native controls
+    audio.addEventListener('play', () => {
+        audioIcon.classList.remove('fa-play');
+        audioIcon.classList.add('fa-pause');
+    });
+    audio.addEventListener('pause', () => {
+        audioIcon.classList.remove('fa-pause');
+        audioIcon.classList.add('fa-play');
+    });
+} 
